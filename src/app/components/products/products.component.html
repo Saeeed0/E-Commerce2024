@@ -1,0 +1,83 @@
+<div class="container my-5">
+  <div class="ms-5 text-primary my-5">
+    {{ selectedCatId }}
+  </div>
+  <div class="mb-3">
+    <select [(ngModel)]="selectedCatId" class="form-select form-select-lg">
+      <option *ngFor="let cat of categories" [value]="cat.id">
+        {{ cat.name }}
+      </option>
+    </select>
+  </div>
+
+  <div class="row row-cols-1 row-cols-md-4 g-4">
+    <ng-container
+      *ngFor="let product of products; trackBy: trakProduct"
+      class="col"
+    >
+      <div
+        *ngIf="product.quantaty > 0"
+        [ngClass]="selectedCatId != product.catId ? 'd-none' : ''"
+      >
+        <div
+          class="card"
+          [ngStyle]="{ backgroundColor: product.quantaty == 1 ? 'yellow' : '' }"
+        >
+          <img
+            [src]="product.imgUrl"
+            class="card-img-top"
+            [alt]="product.name"
+          />
+          <div class="card-body">
+            <h5 class="card-title">{{ product.name }}</h5>
+            <!-- <p class="card-text" *ngIf="product.quantaty == 1; else lastItem">
+              last item {{ product.quantaty }}
+              
+            </p>
+            <ng-template #lastItem>
+              <p class="card-text">Quantaty: {{ product.quantaty }}</p>
+            </ng-template> -->
+            <span [ngSwitch]="product.quantaty">
+            <p *ngSwitchCase="1">
+              last item: {{ product.quantaty }}
+            </p>
+            <p *ngSwitchCase="2">
+              last two item: {{ product.quantaty }}
+            </p>
+            <p *ngSwitchDefault>
+              Quantaty: {{ product.quantaty }}
+            </p>
+            </span>
+
+            <p class="card-text">Price:{{ product.price }}</p>
+
+            <button (click)="buy(product)" class="btn btn-primary">buy</button>
+
+            <!-- <div class="d-flex">
+          <input type="number" class="form-control" #inp />
+
+          <button
+            (click)="buy(product.price, inp.value)"
+            class="btn btn-primary"
+          >
+            buy
+          </button>
+        </div> -->
+          </div>
+        </div>
+
+        
+      </div>
+    </ng-container>
+  </div>
+</div>
+
+<!-- <div class="container">
+  {{ totalOrderPrice }}
+</div> -->
+
+<!-- all under code make visibility:hidden -->
+<!-- [ngStyle]="{display:product.quantaty>0?'block':'none'}" -->
+<!-- [style]="{ display: product.quantaty > 0 ? 'block' : 'none'}" -->
+<!-- [ngClass]="product.quantaty > 0 ? 'd-block' : 'd-none'" -->
+<!-- *ngIf="product.quantaty > 0"> -->
