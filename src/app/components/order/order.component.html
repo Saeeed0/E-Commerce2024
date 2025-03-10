@@ -1,0 +1,45 @@
+<div class="m-3">
+  <div class="mb-3">
+    <select
+      class="form-select form-select-lg"
+      [(ngModel)]="selectedCatId"
+      name=""
+      id=""
+    >
+      <option *ngFor="let cat of catigories" [value]="cat.id">
+        {{ cat.name }}
+      </option>
+    </select>
+  </div>
+</div>
+<p>{{ recievedTotalPrice }}</p>
+
+<app-products
+  [recievedCatId]="selectedCatId"
+  (onTotalOrderPriceChange)="calcTotalPrice($event)"
+  (onBuyProdcut)="showBoughtProducts($event)"
+></app-products>
+
+<div class="table-responsive w-50 m-auto">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">Name</th>
+        <th scope="col">Price</th>
+        <th scope="col">Count</th>
+        <th scope="col">Delete</th>
+      </tr>
+    </thead>
+    <tbody>
+      @for (product of productsToBuy; track $index) {
+
+      <tr class="">
+        <td>{{ product.name }}</td>
+        <td>{{ product.price }}</td>
+        <td>{{ product.count }}</td>
+        <td><button type="button" (click)="remove(product.id)" class="btn btn-danger">Remove</button></td>
+      </tr>
+      }
+    </tbody>
+  </table>
+</div>

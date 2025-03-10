@@ -1,13 +1,13 @@
 import { Component } from '@angular/core';
 import { FooterComponent } from "./components/footer/footer.component";
-import { ProductsComponent } from "./components/products/products.component";
-import { NavbarComponent } from "./components/navbar/navbar.component";
+import { NavbarComponent } from './components/navbar/navbar.component';
+import { OrderComponent } from './components/order/order.component';
 
 
 
 @Component({
   selector: 'app-root',
-  imports: [FooterComponent, ProductsComponent, NavbarComponent 
+  imports: [FooterComponent ,NavbarComponent,OrderComponent
 
   ],
   
