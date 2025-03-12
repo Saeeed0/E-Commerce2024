@@ -17,7 +17,7 @@
 <app-products
   [recievedCatId]="selectedCatId"
   (onTotalOrderPriceChange)="calcTotalPrice($event)"
-  (onBuyProdcut)="showBoughtProducts($event)"
+  (onBuyProdcut)="StorePurchasedProducts($event)"
 ></app-products>
 
 <div class="table-responsive w-50 m-auto">
@@ -37,7 +37,7 @@
         <td>{{ product.name }}</td>
         <td>{{ product.price }}</td>
         <td>{{ product.count }}</td>
-        <td><button type="button" (click)="remove(product.id)" class="btn btn-danger">Remove</button></td>
+        <td><button type="button" (click)="removeProductById(product.id)" class="btn btn-danger">Remove</button></td>
       </tr>
       }
     </tbody>
