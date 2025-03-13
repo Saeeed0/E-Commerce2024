@@ -1,0 +1,17 @@
+<p>product-details works!</p>
+<div class="m-5 p-5">
+  <h2>{{ product?.name }}</h2>
+  <img [src]="product?.imgUrl" alt="" />
+  <div class="mt-3">
+    <p class="">
+        Price: {{ product?.price }}
+      </p>
+      <p class="">
+        Quantaty: {{ product?.quantaty }}
+      </p>
+  </div>
+
+  <button class="btn btn-primary" (click)="goBack()">back</button>
+  <button class="btn btn-success" [disabled]="productId==productIds[0]" (click)="goToPreviousProduct()">prev</button>
+  <button class="btn btn-success" [disabled]="productId==productIds[productIds.length-1]" (click)="goToNextProduct()">next</button>
+</div>

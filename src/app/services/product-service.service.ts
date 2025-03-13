@@ -127,4 +127,7 @@ export class ProductService {
     );
     return filteredProducts;
   }
+  mapProductsToIds(): number[] {
+    return this.products.map((pro) => pro.id);
+  }
 }
