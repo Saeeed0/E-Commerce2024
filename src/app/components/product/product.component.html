@@ -1,0 +1,152 @@
+<div class="container my-5">
+  <form
+    (ngSubmit)="addProduct()"
+    #addProdForm="ngForm"
+    enctype="multipart/form-data"
+  >
+    <!-- Product Name -->
+    <div class="mb-3 row align-items-center">
+      <label for="pName" class="form-label" style="width: 155px"
+        >Product Name:</label
+      >
+      <input
+        type="text"
+        class="form-control col"
+        id="pName"
+        name="pName"
+        placeholder="eg. samsung"
+        [(ngModel)]="newProduct.name"
+        #prodName="ngModel"
+        pattern="^[a-zA-Z0-9 ]{3,50}$"
+        required
+      />
+      @if (prodName.touched && prodName.invalid) {
+      <div class="text-danger w-100 text-center">
+        @if (prodName.hasError('required')) {
+        <p>Name is required</p>
+        } @if (prodName.hasError('pattern')) {
+        <p>
+          Name must be 3-50 characters long and can only contain letters,
+          numbers, and spaces.
+        </p>
+        }
+      </div>
+      }
+    </div>
+
+    <!-- Product Category -->
+    <div class="mb-3 row align-items-center">
+      <label for="category" class="form-label" style="width: 155px"
+        >Product Category:</label
+      >
+      <select
+        class="form-select form-select-lg col"
+        id="category"
+        name="category"
+        [(ngModel)]="newProduct.catId"
+        required
+        #prodCategory="ngModel"
+      >
+        <option value="">Select a category</option>
+        @for (cat of categories; track cat.id) {
+        <option [value]="cat.id">{{ cat.name }}</option>
+        }
+      </select>
+      @if (prodCategory.touched && prodCategory.invalid) {
+      <div class="text-danger text-center">
+        @if (prodCategory.hasError('required')) {
+        <p>Category is required</p>
+        }
+      </div>
+      }
+    </div>
+
+    <!-- Product Price -->
+    <div class="mb-3 row align-items-center">
+      <label for="pPrice" class="form-label" style="width: 155px"
+        >Product Price:</label
+      >
+      <input
+        type="number"
+        class="form-control col"
+        id="pPrice"
+        name="pPrice"
+        placeholder="eg. 2000"
+        [(ngModel)]="newProduct.price"
+        required
+        min="1"
+        #prodPrice="ngModel"
+      />
+      @if (prodPrice.touched && prodPrice.invalid) {
+      <div class="text-danger text-center">
+        @if (prodPrice.hasError('required')) {
+        <p>Price is required</p>
+        } @if (prodPrice.hasError('min')) {
+        <p>Price must be greater than 0</p>
+        }
+      </div>
+      }
+    </div>
+
+    <!-- Product Quantity -->
+    <div class="mb-3 row align-items-center">
+      <label for="pQuantity" class="form-label" style="width: 155px"
+        >Product Quantity:</label
+      >
+      <input
+        type="number"
+        class="form-control col"
+        id="pQuantity"
+        name="pQuantity"
+        placeholder="eg. 1"
+        [(ngModel)]="newProduct.quantaty"
+        required
+        min="1"
+        #prodQuantity="ngModel"
+      />
+      @if (prodQuantity.touched && prodQuantity.invalid) {
+      <div class="text-danger text-center">
+        @if (prodQuantity.hasError('required')) {
+        <p>Quantity is required</p>
+        } @if (prodQuantity.hasError('min')) {
+        <p>Quantity must be greater than 0</p>
+        }
+      </div>
+      }
+    </div>
+
+    <!-- Product Image -->
+    <div class="mb-3 row align-items-center">
+      <label for="pImage" class="form-label" style="width: 155px"
+        >Product Image:</label
+      >
+      <input
+        type="file"
+        class="form-control col"
+        id="pImage"
+        name="pImage"
+        [(ngModel)]="newProduct.imgUrl"
+        required
+        #prodImage="ngModel"
+      />
+      @if (prodImage.touched && prodImage.invalid) {
+      <div class="text-danger text-center">
+        @if (prodImage.hasError('required')) {
+        <p>Image is required</p>
+        }
+      </div>
+      }
+    </div>
+
+    <!-- Submit Button -->
+    <div class="text-center">
+      <button
+        type="submit"
+        [disabled]="addProdForm.invalid"
+        class="btn btn-primary p-3"
+      >
+        Add Product
+      </button>
+    </div>
+  </form>
+</div>

@@ -1,0 +1,174 @@
+{
+  "products": [
+    {
+      "id": 100,
+      "name": "dell labtop",
+      "catId": 1,
+      "imgUrl": "https://picsum.photos/300/",
+      "price": 20000,
+      "quantaty": 1
+    },
+    {
+      "id": 200,
+      "name": "lenovo labtop",
+      "catId": 1,
+      "imgUrl": "https://picsum.photos/300/",
+      "price": 25000,
+      "quantaty": 2
+    },
+    {
+      "id": 700,
+      "name": "HP labtop",
+      "catId": 1,
+      "imgUrl": "https://picsum.photos/300/",
+      "price": 20000,
+      "quantaty": 4
+    },
+    {
+      "id": 800,
+      "name": "Sumsung labtop",
+      "catId": 1,
+      "imgUrl": "https://picsum.photos/300/",
+      "price": 25000,
+      "quantaty": 0
+    },
+    {
+      "id": 400,
+      "name": "lg tv",
+      "catId": 2,
+      "imgUrl": "https://picsum.photos/300/",
+      "price": 170000,
+      "quantaty": 1
+    },
+    {
+      "id": 300,
+      "name": "HP tv",
+      "catId": 2,
+      "imgUrl": "https://picsum.photos/300/",
+      "price": 150000,
+      "quantaty": 2
+    },
+    {
+      "id": 900,
+      "name": "sumsung tv",
+      "catId": 2,
+      "imgUrl": "https://picsum.photos/300/",
+      "price": 150000,
+      "quantaty": 2
+    },
+    {
+      "id": 1000,
+      "name": "lenovo tv",
+      "catId": 2,
+      "imgUrl": "https://picsum.photos/300/",
+      "price": 170000,
+      "quantaty": 1
+    },
+    {
+      "id": 500,
+      "name": "oppo mobile",
+      "catId": 3,
+      "imgUrl": "https://picsum.photos/300/",
+      "price": 56000,
+      "quantaty": 0
+    },
+    {
+      "id": 600,
+      "name": "iphon mobile",
+      "catId": 3,
+      "imgUrl": "https://picsum.photos/300/",
+      "price": 78000,
+      "quantaty": 4
+    },
+    {
+      "id": 1100,
+      "name": "Huawi mobile",
+      "catId": 3,
+      "imgUrl": "https://picsum.photos/300/",
+      "price": 56000,
+      "quantaty": 0
+    },
+    {
+      "id": 1200,
+      "name": "Realme mobile",
+      "catId": 3,
+      "imgUrl": "https://picsum.photos/300/",
+      "price": 78000,
+      "quantaty": 4
+    },
+    {
+      "id": 2000,
+      "name": "assus labtop",
+      "catId": 1,
+      "imgUrl": "https://picsum.photos/300/",
+      "price": 254000,
+      "quantaty": 22
+    },
+    {
+      "id": 1741983256878,
+      "name": "saeed lab",
+      "catId": 1,
+      "price": 234,
+      "quantaty": 23,
+      "imgUrl": "https://picsum.photos/300/"
+    },
+    {
+      "id": 1741983493967,
+      "name": "asser lab",
+      "catId": 1,
+      "price": 234,
+      "quantaty": 234,
+      "imgUrl": "https://picsum.photos/300/"
+    },
+    {
+      "id": 1741983705548,
+      "name": "iphone 17 pro",
+      "catId": 3,
+      "price": 25999,
+      "quantaty": 5,
+      "imgUrl": "https://picsum.photos/300/"
+    },
+    {
+      "id": 1741984291643,
+      "name": "xaomi",
+      "catId": 3,
+      "price": 23444,
+      "quantaty": 2,
+      "imgUrl": "https://picsum.photos/300/"
+    },
+    {
+      "id": 1741988365490,
+      "catId": null
+    },
+    {
+      "id": 1741988422881,
+      "catId": null
+    },
+    {
+      "id": 1741991248224,
+      "name": "sumsung flip android",
+      "catId": 3,
+      "price": 299999,
+      "quantaty": 1,
+      "imgUrl": "https://picsum.photos/300/"
+    }
+  ],
+  "categories": [
+    {
+      "id": 0,
+      "name": "all"
+    },
+    {
+      "id": 1,
+      "name": "labtop"
+    },
+    {
+      "id": 2,
+      "name": "tv"
+    },
+    {
+      "id": 3,
+      "name": "mobile"
+    }
+  ]
+}

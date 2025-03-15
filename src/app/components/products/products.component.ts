@@ -10,6 +10,7 @@ import { NationalIdPipe } from '../../pipes/national-id.pipe';
 import { CridetCardPipe } from '../../pipes/cridet-card.pipe';
 import { ProductService } from '../../services/product-service.service';
 import { RouterLink } from '@angular/router';
+import { ApiProductsService } from '../../services/api-products.service';
 
 @Component({
   selector: 'app-products',
@@ -41,7 +42,11 @@ export class ProductsComponent {
   id: string = '30102112704258';
   cridetCard: string = '1234567891234567';
 
-  constructor(private _ProductService: ProductService) {}
+  // constructor(private _ProductService: ProductService) {}
+  constructor(
+    private _ProductService: ProductService,
+    private _ApiProductsService: ApiProductsService
+  ) {}
 
   ///
   buy(product: Iproduct) {
@@ -54,11 +59,22 @@ export class ProductsComponent {
     return item.id;
   }
   ngOnChanges(): void {
-    this.filtereProducts = this._ProductService.getProductsByCatId(
-      this.recievedCatId
-    );
+    // this.filtereProducts = this._ProductService.getProductsByCatId(
+    //   this.recievedCatId
+    // );
+    this._ApiProductsService.getProductsByCatId(this.recievedCatId).subscribe({
+      next: (products) => {
+        console.log(products);
+        this.filtereProducts = products;
+      },
+    });
   }
   ngOnInit(): void {
-    this.filtereProducts = this._ProductService.getAllProducts();
+    this._ApiProductsService.getAllProducts().subscribe({
+      next: (products) => {
+        this.filtereProducts = products;
+        console.log(products);
+      },
+    });
   }
 }

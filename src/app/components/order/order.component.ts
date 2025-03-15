@@ -5,6 +5,8 @@ import { CommonModule } from '@angular/common';
 import { Iproduct } from '../../models/iproduct';
 import { FormsModule } from '@angular/forms';
 import { IBoughtProduct } from '../../models/ibought-product';
+import { HttpClient } from '@angular/common/http';
+import { environment } from '../../../environments/environment.development';
 @Component({
   selector: 'app-order',
   imports: [ProductsComponent, CommonModule, FormsModule],
@@ -13,18 +15,17 @@ import { IBoughtProduct } from '../../models/ibought-product';
   standalone: true,
 })
 export class OrderComponent {
-  catigories: Icategory[] = [];
+  categories: Icategory[] = [];
   productsToBuy: IBoughtProduct[] = [];
   selectedCatId: number = 0;
   recievedTotalPrice: number = 0;
-
+ constructor(private httpClient:HttpClient){}
   ngOnInit(): void {
-    this.catigories = [
-      { id: 0, name: 'all' },
-      { id: 1, name: 'labtop' },
-      { id: 2, name: 'tv' },
-      { id: 3, name: 'mobile' },
-    ];
+    this.httpClient.get<Iproduct[]>(`${environment.baseURL}/categories`).subscribe({
+      next:(categories)=>{console.log(categories);
+        this.categories=categories
+      }
+    })
   }
 
   @ViewChild(ProductsComponent) products!: ProductsComponent;
