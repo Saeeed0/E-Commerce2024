@@ -18,6 +18,13 @@ export class UserAuthService {
     localStorage.removeItem('token');
     this.isLoggedInSubject.next(false);
   }
+  getToken():string {
+    
+    let token=localStorage.getItem('token');
+    console.log(token);
+    return token?token:'no token'
+
+  }
   private checkLoginStatus(): boolean {
     return !!localStorage.getItem('token');
   }

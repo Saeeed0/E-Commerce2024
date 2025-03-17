@@ -11,11 +11,18 @@ import { ProductDetailsComponent } from './components/product-details/product-de
 import { LoginComponent } from './components/login/login.component';
 import { authGuard } from './guards/auth.guard';
 import { ProductComponent } from './components/product/product.component';
+import { RegisterComponent } from './components/register/register.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
-  { path: 'order', component: OrderComponent },
+  {
+    path: 'order',
+    loadComponent: () =>
+      import('./components/order/order.component').then(
+        (obj) => obj.OrderComponent
+      ),
+  },
   {
     path: 'aboutus',
     component: AboutUsComponent,
@@ -25,9 +32,10 @@ export const routes: Routes = [
     ],
   },
   { path: 'login', component: LoginComponent },
-  {path:'product',component:ProductComponent},
+  { path: 'product', component: ProductComponent },
   { path: 'details/:id', component: ProductDetailsComponent },
   { path: 'contacts', component: ContactsComponent },
-  { path: 'products', component: ProductsComponent,canActivate:[authGuard] },
+  {path:'register',component:RegisterComponent},
+  { path: 'products', component: ProductsComponent, canActivate: [authGuard] },
   { path: '**', component: NotFoundComponent },
 ];

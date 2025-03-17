@@ -1,0 +1,78 @@
+<div class="container my-5">
+  <form (submit)="register()" [formGroup]="registerationForm">
+    <h2>{{ registerationForm.value | json }}</h2>
+    <div class="mb-3">
+      <label for="name" class="form-label">Name</label>
+      <input
+        type="text"
+        name="name"
+        formControlName="name"
+        id="name"
+        class="form-control"
+      />
+    </div>
+    <div class="mb-4 text-danger" *ngIf="name?.touched && name?.invalid" >
+        <p *ngIf="registerationForm.get('name')?.hasError('required')">Name is required</p>
+        <p *ngIf="registerationForm.get('name')?.hasError('maxlength') || registerationForm.get('name')?.hasError('minlength')">min is 3 and max is 20</p>
+    </div>
+    <div class="mb-3">
+      <label for="email" class="form-label">Email address</label>
+      <input
+        type="email"
+        name="email"
+        formControlName="email"
+        id="email"
+        class="form-control"
+      />
+    </div>
+    <div class="mb-3">
+      <label for="password" class="form-label">Password</label>
+      <input
+        type="password"
+        name="password"
+        formControlName="password"
+        id="password"
+        class="form-control"
+      />
+    </div>
+    <div formGroupName="address" class="mb-3">
+      <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label">City</label>
+        <input
+          type="text"
+          name="city"
+          formControlName="city"
+          id="city"
+          class="form-control"
+        />
+      </div>
+      <div class="mb-3">
+        <label for="street" class="form-label">Street</label>
+        <input
+          type="text"
+          name="street"
+          formControlName="street"
+          id="street"
+          class="form-control"
+        />
+      </div>
+    </div>
+    <div class="" >
+        @for (phone of phones.controls; track $index;) {
+            <div formArrayName="phoness" class="mb-3">
+                <label for="phone" class="form-label">phone {{$index}}</label>
+                <input
+                  type="text"
+                  name="phone"
+                  [formControlName]="$index"
+                  id="phone"
+                  class="form-control"
+                />
+              </div>
+        }
+        <button class="btn btn-success my-5" (click)="addNewPhone()">+</button>
+    </div>
+    <button (click)="register()">click</button>
+    <button [disabled]="registerationForm.invalid" type="submit" class="btn btn-primary">Submit</button>
+  </form>
+</div>
