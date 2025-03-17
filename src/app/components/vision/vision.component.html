@@ -1,1 +1,10 @@
-<p>vision works!</p>
+<h1>
+    {{counter$ | async}}
+
+</h1>
+<h2>
+    {{count}}
+</h2>
+
+<button class="btn btn-success" (click)="increaseCounterVal()">+</button>
+<button class="btn btn-danger" (click)="decreaseCounterVal()">-</button>

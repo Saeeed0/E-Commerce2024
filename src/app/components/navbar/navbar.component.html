@@ -81,7 +81,16 @@
           >Register</a
         >
       </li>
+      
+      <li class="nav-item">
+        <button class="btn btn-success" (click)="changeLang()">change lang</button>
+        
+      </li>
+      
     </ul>
+    <h2 class="fs-1 text-light">
+      {{counter$ | async}}
+    </h2>
     <form class="d-flex my-2 my-lg-0">
       <input class="form-control me-sm-2" type="text" placeholder="Search" />
       <button class="btn btn-outline-success my-2 my-sm-0" type="submit">
